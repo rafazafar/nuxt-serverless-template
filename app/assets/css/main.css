@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme {
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+
+  /* NuxtHub green — full 11-shade scale */
+  --color-nuxthub-50:  #f0fdf8;
+  --color-nuxthub-100: #ccfce8;
+  --color-nuxthub-200: #9af7d1;
+  --color-nuxthub-300: #5eedb4;
+  --color-nuxthub-400: #22da93;
+  --color-nuxthub-500: #00DC82;
+  --color-nuxthub-600: #00b46a;
+  --color-nuxthub-700: #008f54;
+  --color-nuxthub-800: #007044;
+  --color-nuxthub-900: #005c38;
+  --color-nuxthub-950: #003320;
+}
+
+:root {
+  --ui-radius: 0.5rem;
+}
+
+/* Smooth color mode transitions */
+*, *::before, *::after {
+  transition-property: background-color, border-color;
+  transition-duration: 250ms;
+  transition-timing-function: ease;
+}
+
+/* Override transition for things that should be instant */
+.no-transition,
+.no-transition * {
+  transition: none !important;
+}
+
+/* Terminal blinking cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Pulse dot for live indicator */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* Spin for loading states */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+.animate-blink { animation: blink 1.1s step-end infinite; }
+.animate-pulse-dot { animation: pulse-dot 2.5s ease-in-out infinite; }

@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  css: ['~/assets/css/main.css'],
+
   modules: [
     "@nuxthub/core",
     "@nuxtjs/seo",
@@ -9,12 +11,14 @@ export default defineNuxtConfig({
     "@nuxt/scripts",
     "nuxt-nodemailer",
     "@nuxtjs/kinde",
+    "@nuxt/devtools"
+    
   ],
   devtools: { enabled: true },
   compatibilityDate: "2026-03-18",
 
   nitro: {
-    preset: process.env.NITRO_PRESET || "cloudflare_module",
+    preset: "cloudflare_module",
   },
 
   hub: {

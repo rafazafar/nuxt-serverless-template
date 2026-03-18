@@ -1,5 +1,5 @@
 {
-  "name": "nuxthub-starter",
+  "name": "nuxt-edge-template",
   "private": true,
   "type": "module",
   "scripts": {
@@ -7,8 +7,7 @@
     "build": "nuxt build",
     "deploy-cloudflare": "NITRO_PRESET=cloudflare_module npm run build && npx wrangler deploy && npx wrangler d1 migrations apply DB --remote",
     "deploy-vercel": "npx vercel deploy",
-    "prepare-ai": "pnpx skills add antfu/skills -a codex -s nuxt -y && pnpx skills add obra/superpowers --skill using-superpowers -a codex -y && pnpx skills add onmax/nuxt-skills --skill nuxthub -a codex -y",
-    "postinstall": "nuxt prepare",
+    "postinstall": "pnpx skills add antfu/skills -a codex -s nuxt -y && pnpx skills add obra/superpowers --skill using-superpowers -a codex -y && pnpx skills add onmax/nuxt-skills --skill nuxthub -a codex -y && nuxt prepare",
     "typecheck": "nuxt typecheck",
     "test": "vitest",
     "test:watch": "vitest --watch",
@@ -32,10 +31,12 @@
     "nuxt-nodemailer": "1.1.4"
   },
   "devDependencies": {
+    "@nuxt/devtools": "3.2.4",
     "@vue/test-utils": "^2.4.6",
     "happy-dom": "^20.8.4",
     "vitest": "^4.1.0",
     "vue-tsc": "^3.2.6",
     "wrangler": "4.62.0"
-  }
+  },
+  "author": "rafazafar"
 }

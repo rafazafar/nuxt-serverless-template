@@ -1,6 +1,4 @@
 # Nuxt Cloudflare/Vercel Starter Template
-Powered by NuxtHub Module
-
 This template is meant for fast development and deployment to Cloudflare and Vercel, with batteries included meant for production readiness.
 
 ## ToC
@@ -9,7 +7,7 @@ This template is meant for fast development and deployment to Cloudflare and Ver
 
 ## Quick Start
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/rafazafar/nuxt-serverless-template)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/rafazafar/nuxt-edge-template)
 
 ## Examples
 

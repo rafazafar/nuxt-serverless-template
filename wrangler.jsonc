@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "nuxt-serverless-template",
+	"name": "nuxt-edge-template",
 	"main": "./.output/server/index.mjs",
 	"compatibility_date": "2026-01-31",
 	"assets": {
