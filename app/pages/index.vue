@@ -18,7 +18,7 @@ const features = computed(() => [
     title: 'Database',
     description: 'Full SQLite at the edge with Drizzle ORM. Zero cold starts, full CRUD, automatic migrations.',
     icon: 'i-lucide-database',
-    to: '/db',
+    to: '/docs/db',
     badge: `${messageCount.value} rows`,
     code: 'db.select().from(tables.messages)',
   },
@@ -26,7 +26,7 @@ const features = computed(() => [
     title: 'Blob Storage',
     description: 'Upload, serve, and manage files with automatic CDN caching across 300+ edge locations.',
     icon: 'i-lucide-image',
-    to: '/blob',
+    to: '/docs/blob',
     badge: `${imageCount.value} files`,
     code: "hubBlob().put(filename, file)",
   },
@@ -34,7 +34,7 @@ const features = computed(() => [
     title: 'KV Store',
     description: 'Lightning-fast key-value storage globally replicated — perfect for config, flags, and redirects.',
     icon: 'i-lucide-key-round',
-    to: '/kv',
+    to: '/docs/kv',
     badge: 'Global',
     code: "hubKV().set('key', value)",
   },
@@ -42,7 +42,7 @@ const features = computed(() => [
     title: 'Cache',
     description: 'Built-in Nitro caching with TTL, stale-while-revalidate, and per-route invalidation. Zero config.',
     icon: 'i-lucide-zap',
-    to: '/cache',
+    to: '/docs/cache',
     badge: 'Zero-config',
     code: "cachedEventHandler(fn, { maxAge: 60 })",
   },
@@ -50,7 +50,7 @@ const features = computed(() => [
     title: 'Internationalization',
     description: 'Configure locales in Nuxt and store translation strings in locale JSON files for each language.',
     icon: 'i-lucide-languages',
-    to: '/i18n',
+    to: '/docs/i18n',
     badge: 'ja / en',
     code: 'i18n.locales = [...]',
   },
@@ -58,7 +58,7 @@ const features = computed(() => [
     title: 'Email',
     description: 'Send transactional email from the edge with a provider-ready foundation for notifications and workflows.',
     icon: 'i-lucide-mail',
-    to: '/email',
+    to: '/docs/email',
     badge: 'Ready',
     code: 'nodemailer.sendMail(...)',
     accent: 'info'
@@ -67,7 +67,7 @@ const features = computed(() => [
     title: 'AI DX',
     description: 'Preinstalled Agent Skills make it easier to build pages, storage features, and repo improvements in this app.',
     icon: 'i-lucide-sparkles',
-    to: '/agents',
+    to: '/docs/agents',
     badge: 'Ready',
     code: 'Use Codex with repo skills',
     accent: 'info',
@@ -134,7 +134,7 @@ const terminalLines = [
             />
             <UButton
               label="Try the features"
-              to="/db"
+              to="/docs/db"
               color="neutral"
               variant="subtle"
               size="lg"

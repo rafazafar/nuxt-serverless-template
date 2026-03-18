@@ -20,6 +20,16 @@
     <UNavigationMenu :items="navItems" />
 
     <template #right>
+      <USelectMenu
+        v-model="selectedLocale"
+        aria-label="Switch language"
+        :items="localeOptions"
+        value-key="code"
+        label-key="label"
+        :search-input="false"
+        class="w-32"
+      />
+
       <UColorModeButton>
         <template #fallback>
           <UButton loading variant="ghost" color="neutral" />
@@ -39,16 +49,59 @@
 
 <script lang="ts" setup>
 import type { NavigationMenuItem } from "@nuxt/ui";
+import { computed, ref, watch } from "vue";
 
 const navItems: NavigationMenuItem[] = [
-  { label: "AI DX", to: "/agents", icon: "i-lucide-bot" },
-  { label: "Database", to: "/db", icon: "i-lucide-database" },
-  { label: "Blob", to: "/blob", icon: "i-lucide-image" },
-  { label: "KV Store", to: "/kv", icon: "i-lucide-key-round" },
-  { label: "Cache", to: "/cache", icon: "i-lucide-zap" },
-  { label: "Email", to: "/email", icon: "i-lucide-mail" },
-  { label: "I18n", to: "/i18n", icon: "i-lucide-languages" },
+  { label: "AI DX", to: "/docs/agents", icon: "i-lucide-bot" },
+  { label: "Database", to: "/docs/db", icon: "i-lucide-database" },
+  { label: "Blob", to: "/docs/blob", icon: "i-lucide-image" },
+  { label: "KV Store", to: "/docs/kv", icon: "i-lucide-key-round" },
+  { label: "Cache", to: "/docs/cache", icon: "i-lucide-zap" },
+  { label: "Email", to: "/docs/email", icon: "i-lucide-mail" },
+  { label: "I18n", to: "/docs/i18n", icon: "i-lucide-languages" },
 ];
+
+type LocaleOption = {
+  code: string;
+  label: string;
+};
+
+const { locale, locales } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
+
+const fallbackLocaleLabel = (code: string) => code.toUpperCase();
+
+const localeOptions = computed<LocaleOption[]>(() =>
+  locales.value.map((entry) => {
+    if (typeof entry === "string") {
+      return { code: entry, label: fallbackLocaleLabel(entry) };
+    }
+
+    return {
+      code: entry.code,
+      label: entry.name ?? fallbackLocaleLabel(String(entry.code)),
+    };
+  }),
+);
+
+const selectedLocale = ref(locale.value);
+
+watch(locale, (currentLocale) => {
+  selectedLocale.value = currentLocale;
+});
+
+watch(selectedLocale, async (nextLocale, previousLocale) => {
+  if (!nextLocale || nextLocale === previousLocale) {
+    return;
+  }
+
+  const targetPath = switchLocalePath(nextLocale);
+  if (!targetPath) {
+    return;
+  }
+
+  await navigateTo(targetPath);
+});
 </script>
 
 <style></style>

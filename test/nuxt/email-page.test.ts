@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
-import EmailPage from '../../app/pages/email.vue'
+import EmailPage from '../../app/pages/docs/email.vue'
 
 describe('email page', () => {
   it('documents nodemailer params, env overrides, and provider guidance', async () => {
