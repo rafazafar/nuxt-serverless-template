@@ -15,14 +15,17 @@ const history = ref<Array<{ time: number; ms: number; hit: boolean; value: numbe
 async function fetchCached() {
   loading.value = true
   const start = performance.now()
-  const data = await $fetch<CachedResult>('/api/cached')
-  const elapsed = Math.round(performance.now() - start)
-  requestTime.value = elapsed
-  const isHit = result.value !== null && data.cachedAt === result.value.cachedAt
-  result.value = data
-  history.value.unshift({ time: Date.now(), ms: elapsed, hit: isHit, value: data.value })
-  if (history.value.length > 8) history.value.pop()
-  loading.value = false
+  try {
+    const data = await $fetch('/api/cached')
+    const elapsed = Math.round(performance.now() - start)
+    requestTime.value = elapsed
+    const isHit = result.value !== null && data.now === result.value.cachedAt
+    result.value = { cachedAt: data.now, value: data.value }
+    history.value.unshift({ time: Date.now(), ms: elapsed, hit: isHit, value: data.value })
+    if (history.value.length > 8) history.value.pop()
+  } finally {
+    loading.value = false
+  }
 }
 
 function formatTime(ts: number) {
