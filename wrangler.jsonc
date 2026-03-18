@@ -17,7 +17,7 @@
 	"compatibility_flags": [
 		"nodejs_compat",
 		"no_nodejs_compat_v2"
-	]
+	],
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
