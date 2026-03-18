@@ -13,7 +13,7 @@
       "kv": "KV Store",
       "cache": "Cache",
       "email": "Email",
-      "i18n": "I18n"
+      "i18n": "i18n"
     }
   },
   "footer": {
@@ -73,6 +73,21 @@
         "title": "AI DX",
         "description": "Preinstalled Agent Skills make it easier to build pages, storage features, and repo improvements in this app.",
         "badge": "Ready"
+      },
+      "auth": {
+        "title": "Authentication",
+        "description": "Session, login, and route-protection primitives are planned next.",
+        "badge": "Coming soon"
+      },
+      "websockets": {
+        "title": "WebSockets",
+        "description": "Real-time publish and subscribe primitives are planned next.",
+        "badge": "Coming soon"
+      },
+      "seo": {
+        "title": "SEO",
+        "description": "Metadata, social tags, and search-friendly defaults are planned next.",
+        "badge": "Coming soon"
       },
       "status": {
         "explore": "Explore ->",
@@ -388,6 +403,25 @@
       },
       "title": "Database",
       "lead": "Full CRUD on a SQLite database at the edge, with support for any SQL database.",
+      "migrations": {
+        "title": "Migration note",
+        "d1": {
+          "beforeCode": "For Cloudflare D1, migrations cannot run during build because there is no database connection in CI. Run",
+          "afterCode": "locally or add a CI step to apply migrations before deployment."
+        },
+        "external": "For external databases such as Postgres or MySQL, migrations are applied automatically when a database connection is available during development and build.",
+        "autoIntro": "Migrations are automatically applied when you:",
+        "autoItems": {
+          "dev": {
+            "beforeCode": "Start the development server (",
+            "afterCode": ")"
+          },
+          "build": {
+            "beforeCode": "Build the application (",
+            "afterCode": ")"
+          }
+        }
+      },
       "composer": {
         "placeholder": "Write a message to store in SQLite...",
         "send": "Send"

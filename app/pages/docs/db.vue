@@ -8,6 +8,10 @@ useSeoMeta({
 });
 
 const toast = useToast();
+const originalDocs = {
+  label: "NuxtHub Database docs",
+  href: "https://hub.nuxt.com/docs/database",
+};
 const newMessage = ref("");
 const editingId = ref<number | null>(null);
 const editText = ref("");
@@ -97,11 +101,50 @@ function formatTime(ts: number) {
       <p class="text-muted text-base leading-relaxed mb-5">
         {{ t("docs.db.lead") }}
       </p>
+      <div class="mb-5">
+        <UButton
+          :label="originalDocs.label"
+          :to="originalDocs.href"
+          target="_blank"
+          color="neutral"
+          variant="subtle"
+          trailing-icon="i-lucide-external-link"
+        />
+      </div>
       <div
         class="rounded-lg border dark:border-zinc-800 border-zinc-200 border-l-2 border-l-primary dark:bg-zinc-900 bg-zinc-100 px-4 py-3 font-mono text-sm leading-loose text-muted"
       >
         <!-- <span class="text-muted text-xs">./server/api/messages.get.ts</span><br> -->
         <span class="text-violet-400">const</span> rows = <span class="text-violet-400">await</span> db.<span class="text-primary">select</span>().<span class="text-primary">from</span>(<span class="text-amber-400">tables.messages</span>)
+      </div>
+      <div class="mt-5 rounded-xl border border-amber-500/20 bg-amber-500/[0.06] px-4 py-4">
+        <div class="flex items-start gap-3">
+          <UIcon name="i-lucide-triangle-alert" class="mt-0.5 size-5 shrink-0 text-amber-400" />
+          <div class="space-y-3 text-sm text-muted leading-relaxed">
+            <p class="font-semibold text-highlighted">{{ t("docs.db.migrations.title") }}</p>
+            <p>
+              {{ t("docs.db.migrations.d1.beforeCode") }}
+              <code class="font-mono text-amber-300">npx wrangler d1 migrations apply &lt;DATABASE_NAME&gt;</code>
+              {{ t("docs.db.migrations.d1.afterCode") }}
+            </p>
+            <p>{{ t("docs.db.migrations.external") }}</p>
+            <div>
+              <p class="mb-2">{{ t("docs.db.migrations.autoIntro") }}</p>
+              <ul class="list-disc pl-5 space-y-1 text-xs text-amber-300">
+                <li>
+                  {{ t("docs.db.migrations.autoItems.dev.beforeCode") }}
+                  <code class="font-mono">npx nuxt dev</code>
+                  {{ t("docs.db.migrations.autoItems.dev.afterCode") }}
+                </li>
+                <li>
+                  {{ t("docs.db.migrations.autoItems.build.beforeCode") }}
+                  <code class="font-mono">npx nuxt build</code>
+                  {{ t("docs.db.migrations.autoItems.build.afterCode") }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

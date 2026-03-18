@@ -7,6 +7,11 @@ useSeoMeta({
   description: t('docs.cache.seo.description'),
 })
 
+const originalDocs = {
+  label: 'Nitro cache docs',
+  href: 'https://v2.nitro.build/guide/cache',
+}
+
 interface CachedResult {
   cachedAt: number
   value: number
@@ -105,6 +110,16 @@ function timeAgo(ts: number) {
         <UBadge :label="t('docs.cache.ttlLabel')" color="error" variant="subtle" size="sm" class="font-mono align-middle" />
         {{ t('docs.cache.lead.afterBadge') }}
       </p>
+      <div class="mb-5">
+        <UButton
+          :label="originalDocs.label"
+          :to="originalDocs.href"
+          target="_blank"
+          color="neutral"
+          variant="subtle"
+          trailing-icon="i-lucide-external-link"
+        />
+      </div>
       <div class="rounded-lg border dark:border-zinc-800 border-zinc-200 border-l-2 border-l-rose-500 dark:bg-zinc-900 bg-zinc-100 px-4 py-3 font-mono text-sm leading-loose text-muted">
         <span class="text-violet-400">export default</span> <span class="text-primary">cachedEventHandler</span>(<span class="text-violet-400">async</span> (event) => {<br>
         &nbsp;&nbsp;<span class="text-violet-400">return</span> { cachedAt: <span class="text-primary">Date</span>.now(), value: <span class="text-primary">Math.random</span>() }<br>

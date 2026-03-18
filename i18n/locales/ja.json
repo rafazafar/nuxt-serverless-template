@@ -13,7 +13,7 @@
       "kv": "KV ストア",
       "cache": "キャッシュ",
       "email": "メール",
-      "i18n": "I18n"
+      "i18n": "i18n"
     }
   },
   "footer": {
@@ -73,6 +73,21 @@
         "title": "AI DX",
         "description": "あらかじめ入っている Agent Skills で、このアプリのページ、ストレージ機能、リポジトリ改善を進めやすくなります。",
         "badge": "準備完了"
+      },
+      "auth": {
+        "title": "認証",
+        "description": "セッション、ログイン、ルート保護のプリミティブを次に追加予定です。",
+        "badge": "近日公開"
+      },
+      "websockets": {
+        "title": "WebSockets",
+        "description": "リアルタイム配信と購読のプリミティブを次に追加予定です。",
+        "badge": "近日公開"
+      },
+      "seo": {
+        "title": "SEO",
+        "description": "メタデータ、SNS タグ、検索向けの基本設定を次に追加予定です。",
+        "badge": "近日公開"
       },
       "status": {
         "explore": "見る ->",
@@ -388,6 +403,25 @@
       },
       "title": "Database",
       "lead": "エッジ上の SQLite データベースに対して、完全な CRUD を利用できます。任意の SQL データベースにも対応します。",
+      "migrations": {
+        "title": "マイグレーションに関する注意",
+        "d1": {
+          "beforeCode": "Cloudflare D1 では、CI にデータベース接続がないため build 中にマイグレーションを実行できません。",
+          "afterCode": "をローカルで実行するか、デプロイ前にマイグレーションを適用する CI ステップを追加してください。"
+        },
+        "external": "Postgres や MySQL などの外部データベースでは、開発時および build 時にデータベース接続が利用できれば、マイグレーションは自動適用されます。",
+        "autoIntro": "次のタイミングではマイグレーションが自動適用されます:",
+        "autoItems": {
+          "dev": {
+            "beforeCode": "開発サーバーを起動するとき (",
+            "afterCode": ")"
+          },
+          "build": {
+            "beforeCode": "アプリケーションをビルドするとき (",
+            "afterCode": ")"
+          }
+        }
+      },
       "composer": {
         "placeholder": "SQLite に保存するメッセージを入力...",
         "send": "送信"

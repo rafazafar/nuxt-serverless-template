@@ -31,7 +31,25 @@ type StatCopy = {
   label: string
 }
 
-const features = computed(() => [
+type Feature = {
+  key: string
+  title: string
+  description: string
+  icon: string
+  badge: string
+  code: string
+  status: FeatureStatus
+  to?: string
+  ui: {
+    cardRootClass: string
+    iconClass: string
+    badgeColor: 'primary' | 'info' | 'neutral'
+    codeClass: string
+    statusClass: string
+  }
+}
+
+const features = computed<Feature[]>(() => [
   {
     key: 'db',
     title: t('home.features.db.title'),
@@ -41,6 +59,13 @@ const features = computed(() => [
     badge: t('home.features.db.badge', { count: messageCount.value }),
     code: 'db.select().from(tables.messages)',
     status: 'explore' as FeatureStatus,
+    ui: {
+      cardRootClass: 'dark:bg-zinc-900 dark:border-zinc-800 group-hover:border-primary/30 h-full',
+      iconClass: 'size-6 text-primary',
+      badgeColor: 'primary' as const,
+      codeClass: 'text-primary/70',
+      statusClass: 'text-primary',
+    },
   },
   {
     key: 'blob',
@@ -51,6 +76,13 @@ const features = computed(() => [
     badge: t('home.features.blob.badge', { count: imageCount.value }),
     code: 'hubBlob().put(filename, file)',
     status: 'explore' as FeatureStatus,
+    ui: {
+      cardRootClass: 'dark:bg-zinc-900 dark:border-zinc-800 group-hover:border-primary/30 h-full',
+      iconClass: 'size-6 text-primary',
+      badgeColor: 'primary' as const,
+      codeClass: 'text-primary/70',
+      statusClass: 'text-primary',
+    },
   },
   {
     key: 'kv',
@@ -61,6 +93,13 @@ const features = computed(() => [
     badge: t('home.features.kv.badge'),
     code: "hubKV().set('key', value)",
     status: 'explore' as FeatureStatus,
+    ui: {
+      cardRootClass: 'dark:bg-zinc-900 dark:border-zinc-800 group-hover:border-primary/30 h-full',
+      iconClass: 'size-6 text-primary',
+      badgeColor: 'primary' as const,
+      codeClass: 'text-primary/70',
+      statusClass: 'text-primary',
+    },
   },
   {
     key: 'cache',
@@ -71,6 +110,13 @@ const features = computed(() => [
     badge: t('home.features.cache.badge'),
     code: 'cachedEventHandler(fn, { maxAge: 60 })',
     status: 'explore' as FeatureStatus,
+    ui: {
+      cardRootClass: 'dark:bg-zinc-900 dark:border-zinc-800 group-hover:border-primary/30 h-full',
+      iconClass: 'size-6 text-primary',
+      badgeColor: 'primary' as const,
+      codeClass: 'text-primary/70',
+      statusClass: 'text-primary',
+    },
   },
   {
     key: 'i18n',
@@ -81,6 +127,13 @@ const features = computed(() => [
     badge: t('home.features.i18n.badge'),
     code: 'i18n.locales = [...]',
     status: 'explore' as FeatureStatus,
+    ui: {
+      cardRootClass: 'dark:bg-zinc-900 dark:border-zinc-800 group-hover:border-primary/30 h-full',
+      iconClass: 'size-6 text-primary',
+      badgeColor: 'primary' as const,
+      codeClass: 'text-primary/70',
+      statusClass: 'text-primary',
+    },
   },
   {
     key: 'email',
@@ -91,6 +144,13 @@ const features = computed(() => [
     badge: t('home.features.email.badge'),
     code: 'nodemailer.sendMail(...)',
     status: 'ready' as FeatureStatus,
+    ui: {
+      cardRootClass: 'dark:bg-zinc-900 dark:border-zinc-800 group-hover:border-sky-400/30 bg-sky-500/[0.03] h-full',
+      iconClass: 'size-6 text-sky-400',
+      badgeColor: 'info' as const,
+      codeClass: 'text-sky-400/70',
+      statusClass: 'text-sky-400',
+    },
   },
   {
     key: 'agents',
@@ -101,6 +161,61 @@ const features = computed(() => [
     badge: t('home.features.agents.badge'),
     code: 'Use Codex with repo skills',
     status: 'ready' as FeatureStatus,
+    ui: {
+      cardRootClass: 'dark:bg-zinc-900 dark:border-zinc-800 group-hover:border-sky-400/30 bg-sky-500/[0.03] h-full',
+      iconClass: 'size-6 text-sky-400',
+      badgeColor: 'info' as const,
+      codeClass: 'text-sky-400/70',
+      statusClass: 'text-sky-400',
+    },
+  },
+  {
+    key: 'auth',
+    title: t('home.features.auth.title'),
+    description: t('home.features.auth.description'),
+    icon: 'i-lucide-shield-check',
+    badge: t('home.features.auth.badge'),
+    code: 'auth.login(), auth.session()',
+    status: 'comingSoon' as FeatureStatus,
+    ui: {
+      cardRootClass: 'dark:bg-zinc-900 dark:border-zinc-800 group-hover:border-zinc-500/40 bg-zinc-500/[0.03] h-full',
+      iconClass: 'size-6 text-zinc-400',
+      badgeColor: 'neutral' as const,
+      codeClass: 'text-zinc-400/70',
+      statusClass: 'text-zinc-400',
+    },
+  },
+  {
+    key: 'websockets',
+    title: t('home.features.websockets.title'),
+    description: t('home.features.websockets.description'),
+    icon: 'i-lucide-radio',
+    badge: t('home.features.websockets.badge'),
+    code: 'ws.publish(), ws.subscribe()',
+    status: 'comingSoon' as FeatureStatus,
+    ui: {
+      cardRootClass: 'dark:bg-zinc-900 dark:border-zinc-800 group-hover:border-zinc-500/40 bg-zinc-500/[0.03] h-full',
+      iconClass: 'size-6 text-zinc-400',
+      badgeColor: 'neutral' as const,
+      codeClass: 'text-zinc-400/70',
+      statusClass: 'text-zinc-400',
+    },
+  },
+  {
+    key: 'seo',
+    title: t('home.features.seo.title'),
+    description: t('home.features.seo.description'),
+    icon: 'i-lucide-search',
+    badge: t('home.features.seo.badge'),
+    code: 'useSeoMeta({ title, ogTitle })',
+    status: 'comingSoon' as FeatureStatus,
+    ui: {
+      cardRootClass: 'dark:bg-zinc-900 dark:border-zinc-800 group-hover:border-zinc-500/40 bg-zinc-500/[0.03] h-full',
+      iconClass: 'size-6 text-zinc-400',
+      badgeColor: 'neutral' as const,
+      codeClass: 'text-zinc-400/70',
+      statusClass: 'text-zinc-400',
+    },
   },
 ])
 
@@ -255,17 +370,15 @@ const ctaLinks = computed<ButtonProps[]>(() => [
           <UCard
             class="h-full transition-colors duration-200"
             :ui="{
-              root: f.key === 'email' || f.key === 'agents'
-                ? 'dark:bg-zinc-900 dark:border-zinc-800 group-hover:border-sky-400/30 bg-sky-500/[0.03] h-full'
-                : 'dark:bg-zinc-900 dark:border-zinc-800 group-hover:border-primary/30 h-full',
+              root: f.ui.cardRootClass,
             }"
           >
             <div class="flex flex-col gap-3 h-full">
               <div class="flex items-start justify-between">
-                <UIcon :name="f.icon" :class="f.key === 'email' || f.key === 'agents' ? 'size-6 text-sky-400' : 'size-6 text-primary'" />
+                <UIcon :name="f.icon" :class="f.ui.iconClass" />
                 <UBadge
                   :label="f.badge"
-                  :color="f.key === 'agents' || f.key === 'email' ? 'info' : 'primary'"
+                  :color="f.ui.badgeColor"
                   variant="subtle"
                   size="sm"
                   class="font-mono text-[10px]"
@@ -283,11 +396,11 @@ const ctaLinks = computed<ButtonProps[]>(() => [
               <div class="mt-auto pt-3 border-t dark:border-zinc-800 border-zinc-200">
                 <code
                   class="text-xs font-mono block truncate mb-2"
-                  :class="f.key === 'agents' || f.key === 'email' ? 'text-sky-400/70' : 'text-primary/70'"
+                  :class="f.ui.codeClass"
                 >
                   {{ f.code }}
                 </code>
-                <span class="text-xs font-bold" :class="f.key === 'agents' || f.key === 'email' ? 'text-sky-400' : 'text-primary'">
+                <span class="text-xs font-bold" :class="f.ui.statusClass">
                   {{ featureStatusLabel(f.status, f.to) }}
                 </span>
               </div>

@@ -7,6 +7,11 @@ useSeoMeta({
   description: t('docs.blob.seo.description'),
 })
 
+const originalDocs = {
+  label: 'NuxtHub Blob docs',
+  href: 'https://hub.nuxt.com/docs/blob',
+}
+
 const toast = useToast()
 const { data: images, refresh } = await useFetch('/api/images')
 const uploading = ref(false)
@@ -91,6 +96,16 @@ function formatSize(bytes: number) {
         <code class="font-mono text-xs bg-violet-500/10 text-violet-400 px-1.5 py-0.5 rounded">hubBlob()</code>
         {{ t('docs.blob.lead.afterCode') }}
       </p>
+      <div class="mb-5">
+        <UButton
+          :label="originalDocs.label"
+          :to="originalDocs.href"
+          target="_blank"
+          color="neutral"
+          variant="subtle"
+          trailing-icon="i-lucide-external-link"
+        />
+      </div>
       <div class="rounded-lg border dark:border-zinc-800 border-zinc-200 border-l-2 border-l-violet-500 dark:bg-zinc-900 bg-zinc-100 px-4 py-3 font-mono text-sm leading-loose text-muted">
         <span class="text-violet-400">const</span> { blobs } = <span class="text-primary">await</span> blob.<span class="text-primary">list</span>()<br>
           <span class="text-violet-400">await</span> blob.<span class="text-primary">handleUpload</span>(event, {<br>

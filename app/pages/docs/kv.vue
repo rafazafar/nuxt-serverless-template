@@ -7,6 +7,11 @@ useSeoMeta({
   description: t('docs.kv.seo.description'),
 })
 
+const originalDocs = {
+  label: 'NuxtHub KV docs',
+  href: 'https://hub.nuxt.com/docs/kv',
+}
+
 const toast = useToast()
 
 const { data: redirects, refresh } = await useFetch('/api/redirects', {
@@ -64,6 +69,16 @@ async function saveRedirects() {
         <code class="font-mono text-xs bg-amber-500/10 text-amber-400 px-1.5 py-0.5 rounded">hubKV()</code>
         {{ t('docs.kv.lead.afterCode') }}
       </p>
+      <div class="mb-5">
+        <UButton
+          :label="originalDocs.label"
+          :to="originalDocs.href"
+          target="_blank"
+          color="neutral"
+          variant="subtle"
+          trailing-icon="i-lucide-external-link"
+        />
+      </div>
       <div class="rounded-lg border dark:border-zinc-800 border-zinc-200 border-l-2 border-l-amber-500 dark:bg-zinc-900 bg-zinc-100 px-4 py-3 font-mono text-sm leading-loose text-muted">
         <span class="text-violet-400">const</span> kv = <span class="text-primary">hubKV</span>()<br>
         <span class="text-violet-400">await</span> kv.<span class="text-primary">set</span>(<span class="text-amber-400">'redirects'</span>, redirectMap)<br>
