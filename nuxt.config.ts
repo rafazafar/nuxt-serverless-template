@@ -4,6 +4,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   compatibilityDate: "2026-03-18",
 
+  nitro: {
+    preset: process.env.NITRO_PRESET || "cloudflare_module",
+  },
+
   hub: {
     db: "sqlite",
     kv: true,
