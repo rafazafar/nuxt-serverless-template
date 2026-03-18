@@ -36,7 +36,8 @@
 			"binding": "DB",
 			"migrations_table": "_hub_migrations",
 			"migrations_dir": ".output/server/db/migrations/sqlite/",
-			"database_name": "nuxt-edge-template-db"
+			"database_name": "nuxt-edge-template-db",
+			"database_id": "4d2b880e-2771-4cdc-88c6-6f64cd54a01b"
 		}
 	],
 	"kv_namespaces": [

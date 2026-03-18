@@ -7,8 +7,10 @@ const { data: redirects, refresh } = await useFetch('/api/redirects', {
 })
 
 async function updateRedirects() {
+  if (!redirects.value) return
+
   const body = Object.fromEntries(
-    redirects.value!.text.split('\n').map(line => line.split(' ')),
+    redirects.value.text.split('\n').map(line => line.split(' ')),
   )
   await $fetch('/api/redirects', {
     method: 'PUT',
@@ -24,7 +26,7 @@ async function updateRedirects() {
     <form @submit.prevent="updateRedirects">
       <p>
         <textarea
-          v-model="redirects.text"
+          v-model="redirects!.text"
           rows="6"
           placeholder="/from /to (one redirect per line)"
           style="width: 300px;"

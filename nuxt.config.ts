@@ -51,16 +51,5 @@ export default defineNuxtConfig({
     optimizeDeps: {
       include: ["@vue/devtools-core", "@vue/devtools-kit"],
     },
-    build: {
-      rollupOptions: {
-        onwarn(warning, warn) {
-          if (warning.code === "SOURCEMAP_BROKEN") {
-            return;
-          }
-
-          warn(warning);
-        },
-      },
-    },
   },
 });

@@ -16,9 +16,11 @@ async function sendMessage() {
 }
 
 async function deleteMessage(messageID: number | undefined) {
+  if (!messageID) return
+
   await $fetch('/api/messages', {
     method: 'DELETE',
-    body: {
+    query: {
       messageID,
     },
   })
@@ -68,7 +70,7 @@ async function updateMessage(
         <i @click="deleteMessage(message.id)">delete</i>
       </button>
       -
-      {{ new Date(message.created_at || 0).toLocaleString("en") }}
+      {{ new Date(message.createdAt || 0).toLocaleString("en") }}
     </p>
     <p v-if="!messages?.length">
       No messages yet

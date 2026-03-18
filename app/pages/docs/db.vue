@@ -45,7 +45,7 @@ async function sendMessage() {
 }
 
 async function deleteMessage(id: number) {
-  await $fetch("/api/messages", { method: "DELETE", body: { messageID: id } });
+  await $fetch("/api/messages", { method: "DELETE", query: { messageID: id } });
   await refresh();
   toast.add({
     title: t("docs.db.toast.deleted"),
