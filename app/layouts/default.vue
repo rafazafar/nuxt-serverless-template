@@ -38,10 +38,10 @@ const isDark = computed(() => colorMode.value === "dark");
     <!-- ─── Grain texture (dark mode only) ─── -->
     <div
       v-if="isDark"
-      class="fixed inset-0 -z-10 pointer-events-none opacity-[0.35] mix-blend-overlay"
+      class="fixed inset-0 -z-10 pointer-events-none opacity-[0.18] mix-blend-overlay"
       style="
-        background-image: url(&quot;data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.75%22 numOctaves=%224%22 stitchTiles=%22stitch%22/><feColorMatrix type=%22saturate%22 values=%220%22/></filter><rect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%221%22/></svg>&quot;);
-        background-size: 200px 200px;
+        background-image: url(&quot;data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22240%22 height=%22240%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.42%22 numOctaves=%222%22 stitchTiles=%22stitch%22/><feColorMatrix type=%22saturate%22 values=%220%22/></filter><rect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%221%22/></svg>&quot;);
+        background-size: 240px 240px;
       "
     />
 

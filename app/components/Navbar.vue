@@ -41,11 +41,12 @@
 import type { NavigationMenuItem } from "@nuxt/ui";
 
 const navItems: NavigationMenuItem[] = [
-  { label: "Agents", to: "/agents", icon: "i-lucide-bot" },
+  { label: "AI DX", to: "/agents", icon: "i-lucide-bot" },
   { label: "Database", to: "/db", icon: "i-lucide-database" },
   { label: "Blob", to: "/blob", icon: "i-lucide-image" },
   { label: "KV Store", to: "/kv", icon: "i-lucide-key-round" },
   { label: "Cache", to: "/cache", icon: "i-lucide-zap" },
+  { label: "I18n", to: "/i18n", icon: "i-lucide-languages" },
 ];
 </script>
 

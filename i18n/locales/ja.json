@@ -1,0 +1,200 @@
+{
+  "app": {
+    "title": "Nuxt ダッシュボードテンプレート",
+    "description": "データ可視化、管理画面、複数ページ構成を備えた Nuxt UI ベースのダッシュボードテンプレートです。"
+  },
+  "common": {
+    "all": "すべて",
+    "home": "ホーム",
+    "inbox": "受信トレイ",
+    "customers": "顧客",
+    "settings": "設定",
+    "general": "一般",
+    "members": "メンバー",
+    "notifications": "通知",
+    "security": "セキュリティ",
+    "success": "完了",
+    "saveChanges": "変更を保存",
+    "choose": "選択",
+    "update": "更新",
+    "delete": "削除",
+    "cancel": "キャンセル",
+    "create": "作成",
+    "send": "送信",
+    "name": "名前",
+    "email": "メール",
+    "location": "地域",
+    "status": "ステータス",
+    "date": "日付",
+    "amount": "金額",
+    "copiedToClipboard": "クリップボードにコピーしました",
+    "selectAll": "すべて選択",
+    "selectRow": "行を選択"
+  },
+  "search": {
+    "goTo": "移動",
+    "code": "コード",
+    "viewPageSource": "ページソースを表示"
+  },
+  "navigation": {
+    "feedback": "フィードバック",
+    "helpSupport": "ヘルプとサポート"
+  },
+  "cookie": {
+    "title": "当サイトでは、体験向上のためにファーストパーティ Cookie を使用しています。",
+    "accept": "同意する",
+    "optOut": "拒否する"
+  },
+  "actions": {
+    "newMail": "新しいメール",
+    "newCustomer": "新しい顧客"
+  },
+  "userMenu": {
+    "profile": "プロフィール",
+    "billing": "請求",
+    "theme": "テーマ",
+    "primary": "プライマリ",
+    "neutral": "ニュートラル",
+    "appearance": "表示",
+    "light": "ライト",
+    "dark": "ダーク",
+    "language": "言語",
+    "templates": "テンプレート",
+    "documentation": "ドキュメント",
+    "githubRepository": "GitHub リポジトリ",
+    "logout": "ログアウト"
+  },
+  "validation": {
+    "tooShort": "短すぎます",
+    "invalidEmail": "無効なメールアドレスです"
+  },
+  "settings": {
+    "profile": {
+      "title": "プロフィール",
+      "description": "この情報は公開プロフィールに表示されます。",
+      "updated": "設定を更新しました。",
+      "nameDescription": "領収書、請求書、その他の連絡に表示されます。",
+      "emailDescription": "サインイン、メール領収書、製品アップデートに使用されます。",
+      "username": "ユーザー名",
+      "usernameDescription": "ログインとプロフィール URL に使われる一意のユーザー名です。",
+      "avatar": "アバター",
+      "avatarDescription": "JPG、GIF、PNG。最大 1MB。",
+      "bio": "自己紹介",
+      "bioDescription": "プロフィール用の短い説明です。URL はリンク化されます。"
+    },
+    "members": {
+      "description": "メールアドレスで新しいメンバーを招待します。",
+      "invitePeople": "メンバーを招待",
+      "searchPlaceholder": "メンバーを検索",
+      "editMember": "メンバーを編集",
+      "removeMember": "メンバーを削除",
+      "roles": {
+        "member": "メンバー",
+        "owner": "オーナー"
+      }
+    },
+    "notifications": {
+      "channelsTitle": "通知チャンネル",
+      "channelsDescription": "どこに通知を送りますか？",
+      "emailDescription": "毎日のメールダイジェストを受け取ります。",
+      "desktop": "デスクトップ",
+      "desktopDescription": "デスクトップ通知を受け取ります。",
+      "accountUpdatesTitle": "アカウント更新",
+      "accountUpdatesDescription": "Nuxt UI に関する更新を受け取ります。",
+      "weeklyDigest": "週間ダイジェスト",
+      "weeklyDigestDescription": "ニュースの週間ダイジェストを受け取ります。",
+      "productUpdates": "製品アップデート",
+      "productUpdatesDescription": "新機能や更新内容をまとめた月次メールを受け取ります。",
+      "importantUpdates": "重要なお知らせ",
+      "importantUpdatesDescription": "セキュリティ修正やメンテナンスなどの重要なお知らせを受け取ります。"
+    },
+    "security": {
+      "minPassword": "8文字以上で入力してください",
+      "passwordsMustDiffer": "パスワードは異なる必要があります",
+      "passwordTitle": "パスワード",
+      "passwordDescription": "新しいパスワードを設定する前に現在のパスワードを確認してください。",
+      "currentPassword": "現在のパスワード",
+      "newPassword": "新しいパスワード",
+      "accountTitle": "アカウント",
+      "accountDescription": "サービスの利用をやめる場合は、ここでアカウントを削除できます。この操作は元に戻せません。このアカウントに関連する情報はすべて完全に削除されます。",
+      "deleteAccount": "アカウントを削除"
+    }
+  },
+  "inbox": {
+    "unread": "未読",
+    "markAsUnread": "未読にする",
+    "markAsImportant": "重要にする",
+    "starThread": "スレッドにスターを付ける",
+    "muteThread": "スレッドをミュート",
+    "emailSent": "メールを送信しました",
+    "emailSentDescription": "メールは正常に送信されました",
+    "archive": "アーカイブ",
+    "reply": "返信",
+    "replyTo": "{name}（{email}）に返信",
+    "writeReply": "返信を入力...",
+    "attachFile": "ファイルを添付",
+    "saveDraft": "下書きを保存"
+  },
+  "home": {
+    "revenue": "売上",
+    "stats": {
+      "customers": "顧客数",
+      "conversions": "コンバージョン",
+      "revenue": "売上",
+      "orders": "注文数"
+    },
+    "dateRange": {
+      "pickDate": "日付を選択",
+      "last7Days": "直近7日",
+      "last14Days": "直近14日",
+      "last30Days": "直近30日",
+      "last3Months": "直近3か月",
+      "last6Months": "直近6か月",
+      "lastYear": "直近1年"
+    },
+    "periods": {
+      "daily": "日次",
+      "weekly": "週次",
+      "monthly": "月次"
+    },
+    "sales": {
+      "status": {
+        "paid": "支払い済み",
+        "failed": "失敗",
+        "refunded": "返金済み"
+      }
+    }
+  },
+  "customers": {
+    "actions": "操作",
+    "copyCustomerId": "顧客 ID をコピー",
+    "customerIdCopied": "顧客 ID をクリップボードにコピーしました",
+    "viewCustomerDetails": "顧客詳細を見る",
+    "viewCustomerPayments": "支払い履歴を見る",
+    "deleteCustomer": "顧客を削除",
+    "customerDeleted": "顧客を削除しました",
+    "customerDeletedDescription": "顧客は削除されました。",
+    "filterEmails": "メールで絞り込み...",
+    "filterStatus": "ステータスで絞り込み",
+    "display": "表示",
+    "rowsSelected": "{total}件中{selected}件を選択中",
+    "newCustomer": "新しい顧客",
+    "addCustomerDescription": "データベースに新しい顧客を追加します",
+    "newCustomerAdded": "新しい顧客 {name} を追加しました",
+    "deleteCustomersTitle": "{count}件の顧客を削除",
+    "deleteCustomersDescription": "この操作は元に戻せません。本当に削除しますか？",
+    "status": {
+      "subscribed": "購読中",
+      "unsubscribed": "購読解除",
+      "bounced": "配信失敗"
+    },
+    "columns": {
+      "id": "ID",
+      "name": "名前",
+      "email": "メール",
+      "location": "地域",
+      "status": "ステータス",
+      "actions": "操作"
+    }
+  }
+}

@@ -76,8 +76,13 @@ const infoCards = [
         — stores to Cloudflare R2 with global edge delivery.
       </p>
       <div class="rounded-lg border dark:border-zinc-800 border-zinc-200 border-l-2 border-l-violet-500 dark:bg-zinc-900 bg-zinc-100 px-4 py-3 font-mono text-sm leading-loose text-muted">
-        <span class="text-violet-400">const</span> blob = <span class="text-primary">hubBlob</span>()<br>
-        <span class="text-violet-400">await</span> blob.<span class="text-primary">put</span>(<span class="text-amber-400">filename</span>, file, { addRandomSuffix: <span class="text-violet-400">true</span> })
+        <span class="text-violet-400">const</span> { blobs } = <span class="text-primary">await</span> blob.<span class="text-primary">list</span>()<br>
+          <span class="text-violet-400">await</span> blob.<span class="text-primary">handleUpload</span>(event, {<br>
+          <p class="ml-4"><span class="text-violet-400">multiple</span>: <span class="text-violet-400">false</span>,<br></p>
+          <p class="ml-4"><span class="text-violet-400">ensure</span>: {<br></p>
+          <p class="ml-8"><span class="text-violet-400">maxSize</span>: <span class="text-rose-400">'8MB'</span>,<br></p>
+          <p class="ml-8"><span class="text-violet-400">types</span>: [<span class="text-rose-400">'image/png'</span>, <span class="text-rose-400">'image/jpeg'</span>, <span class="text-rose-400">'image/webp'</span>],<br></p>
+          <p>}<br></p>
       </div>
     </div>
 
@@ -92,8 +97,8 @@ const infoCards = [
         variant="area"
         size="lg"
         :ui="{
-          root: 'dark:bg-zinc-900 dark:border-zinc-800 border-zinc-200',
-          base: 'min-h-52 rounded-2xl border border-dashed border-rose-500/20 bg-gradient-to-b from-zinc-950 to-zinc-900 shadow-lg shadow-black/20 transition-colors duration-200 hover:border-rose-500/40',
+          root: 'dark:bg-zinc-900 dark:border-zinc-80 dark:rounded-2xl border-zinc-200',
+          base: 'cursor-pointer min-h-52 rounded-2xl border border-dashed border-rose-500/20 from-zinc-950 to-zinc-900 shadow-lg shadow-black/20 transition-colors duration-200 hover:border-rose-500/40',
           wrapper: 'gap-3',
           label: 'text-base font-semibold text-highlighted',
           description: 'text-sm text-muted max-w-sm',

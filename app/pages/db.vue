@@ -67,11 +67,10 @@ const schema = [
       </div>
       <h1 class="text-4xl font-black tracking-tight text-highlighted mb-3">Database</h1>
       <p class="text-muted text-base leading-relaxed mb-5">
-        Full CRUD on a SQLite database at the edge, powered by Drizzle ORM and
-        <code class="font-mono text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded">hubDatabase()</code>.
+        Full CRUD on a SQLite database at the edge! With support for any SQL database.
       </p>
       <div class="rounded-lg border dark:border-zinc-800 border-zinc-200 border-l-2 border-l-primary dark:bg-zinc-900 bg-zinc-100 px-4 py-3 font-mono text-sm leading-loose text-muted">
-        <span class="text-violet-400">const</span> db = <span class="text-primary">useDrizzle</span>()<br>
+        <!-- <span class="text-muted text-xs">./server/api/messages.get.ts</span><br> -->
         <span class="text-violet-400">const</span> rows = <span class="text-violet-400">await</span> db.<span class="text-primary">select</span>().<span class="text-primary">from</span>(<span class="text-amber-400">tables.messages</span>)
       </div>
     </div>

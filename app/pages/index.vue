@@ -20,7 +20,7 @@ const features = computed(() => [
     icon: 'i-lucide-database',
     to: '/db',
     badge: `${messageCount.value} rows`,
-    code: 'useDrizzle().select().from(tables.messages)',
+    code: 'db.select().from(tables.messages)',
   },
   {
     title: 'Blob Storage',
@@ -47,6 +47,14 @@ const features = computed(() => [
     code: "cachedEventHandler(fn, { maxAge: 60 })",
   },
   {
+    title: 'Internationalization',
+    description: 'Configure locales in Nuxt and store translation strings in locale JSON files for each language.',
+    icon: 'i-lucide-languages',
+    to: '/i18n',
+    badge: 'ja / en',
+    code: 'i18n.locales = [...]',
+  },
+  {
     title: 'Email',
     description: 'Send transactional email from the edge with a provider-ready foundation for notifications and workflows.',
     icon: 'i-lucide-mail',
@@ -55,12 +63,13 @@ const features = computed(() => [
     disabled: true,
   },
   {
-    title: 'AI Ready',
-    description: 'Agents and skills are loaded for fast development, with a workflow ready for AI-assisted builds.',
+    title: 'AI DX',
+    description: 'Preinstalled Agent Skills make it easier to build pages, storage features, and repo improvements in this app.',
     icon: 'i-lucide-sparkles',
+    to: '/agents',
     badge: 'Ready',
-    code: '$skill("agents")',
-    accent: 'success',
+    code: 'Use Codex with repo skills',
+    accent: 'info',
   },
 ])
 
@@ -123,7 +132,7 @@ const terminalLines = [
               size="lg"
             />
             <UButton
-              label="Try the demo"
+              label="Try the features"
               to="/db"
               color="neutral"
               variant="subtle"
@@ -191,6 +200,8 @@ const terminalLines = [
             :ui="{
               root: f.accent === 'success'
                 ? 'dark:bg-zinc-900 dark:border-zinc-800 group-hover:border-success/30 h-full'
+                : f.accent === 'info'
+                  ? 'dark:bg-zinc-900 dark:border-zinc-800 group-hover:border-sky-400/30 bg-sky-500/[0.03] h-full'
                 : f.to
                   ? 'dark:bg-zinc-900 dark:border-zinc-800 group-hover:border-primary/30 h-full'
                   : 'dark:bg-zinc-900/60 dark:border-zinc-800 border-zinc-200 opacity-70 h-full',
@@ -200,12 +211,12 @@ const terminalLines = [
               <div class="flex items-start justify-between">
                 <UIcon
                   :name="f.icon"
-                  :class="f.accent === 'success' ? 'size-6 text-success' : f.to ? 'size-6 text-primary' : 'size-6 text-dimmed'
+                  :class="f.accent === 'success' ? 'size-6 text-success' : f.accent === 'info' ? 'size-6 text-sky-400' : f.to ? 'size-6 text-primary' : 'size-6 text-dimmed'
                   "
                 />
                 <UBadge
                   :label="f.badge"
-                  :color="f.accent === 'success' ? 'success' : f.to ? 'primary' : 'neutral'"
+                  :color="f.accent === 'success' ? 'success' : f.accent === 'info' ? 'info' : f.to ? 'primary' : 'neutral'"
                   variant="subtle"
                   size="sm"
                   class="font-mono text-[10px]"
@@ -214,7 +225,7 @@ const terminalLines = [
               <div>
                 <h3
                   class="font-bold text-base mb-1"
-                  :class="f.accent === 'success' ? 'text-success' : f.to ? 'text-highlighted' : 'text-dimmed'"
+                  :class="f.to ? 'text-highlighted' : 'text-dimmed'"
                 >
                   {{ f.title }}
                 </h3>
@@ -223,11 +234,11 @@ const terminalLines = [
               <div class="mt-auto pt-3 border-t dark:border-zinc-800 border-zinc-200">
                 <code
                   class="text-xs font-mono block truncate mb-2"
-                  :class="f.accent === 'success' ? 'text-success/70' : f.to ? 'text-primary/70' : 'text-dimmed/70'"
+                  :class="f.accent === 'success' ? 'text-success/70' : f.accent === 'info' ? 'text-sky-400/70' : f.to ? 'text-primary/70' : 'text-dimmed/70'"
                 >
                   {{ f.code }}
                 </code>
-                <span class="text-xs font-bold" :class="f.accent === 'success' ? 'text-success' : f.to ? 'text-primary' : 'text-dimmed'">
+                <span class="text-xs font-bold" :class="f.accent === 'success' ? 'text-success' : f.accent === 'info' ? 'text-sky-400' : f.to ? 'text-primary' : 'text-dimmed'">
                   {{ f.to ? 'Explore →' : f.accent === 'success' ? 'Ready' : 'Coming soon' }}
                 </span>
               </div>

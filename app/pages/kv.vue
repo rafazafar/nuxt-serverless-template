@@ -53,8 +53,8 @@ const howSteps = [
       </div>
       <h1 class="text-4xl font-black tracking-tight text-highlighted mb-3">KV Store</h1>
       <p class="text-muted text-base leading-relaxed mb-5">
-        Key-value storage globally replicated at the edge. This demo manages server-side redirects
-        using <code class="font-mono text-xs bg-amber-500/10 text-amber-400 px-1.5 py-0.5 rounded">hubKV()</code>.
+        KV is useful for small, fast reads like redirects, feature flags, app config, and lightweight edge state.
+        This demo stores redirect rules in <code class="font-mono text-xs bg-amber-500/10 text-amber-400 px-1.5 py-0.5 rounded">hubKV()</code> so Nitro can apply them on request.
       </p>
       <div class="rounded-lg border dark:border-zinc-800 border-zinc-200 border-l-2 border-l-amber-500 dark:bg-zinc-900 bg-zinc-100 px-4 py-3 font-mono text-sm leading-loose text-muted">
         <span class="text-violet-400">const</span> kv = <span class="text-primary">hubKV</span>()<br>
