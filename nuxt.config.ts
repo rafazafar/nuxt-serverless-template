@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     "@nuxt/test-utils",
     "@nuxt/ui",
     "@nuxthub/core",
-    "@nuxtjs/kinde",
     "@nuxtjs/seo",
     "nuxt-nodemailer",
     

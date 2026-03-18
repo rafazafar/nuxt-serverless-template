@@ -8,23 +8,37 @@ interface CachedResult {
 }
 
 const result = ref<CachedResult | null>(null)
-const loading = ref(false)
 const requestTime = ref<number | null>(null)
 const history = ref<Array<{ time: number; ms: number; hit: boolean; value: number }>>([])
+const fetchError = ref<string | null>(null)
+
+const {
+  data: cachedResponse,
+  execute: fetchCachedResponse,
+  status,
+  error,
+} = await useFetch('/api/cached', {
+  immediate: false,
+  server: false,
+})
 
 async function fetchCached() {
-  loading.value = true
+  fetchError.value = null
   const start = performance.now()
   try {
-    const data = await $fetch('/api/cached')
+    await fetchCachedResponse()
+    if (error.value) throw error.value
+    const data = cachedResponse.value
+    if (!data) throw new Error('No cached response returned')
+
     const elapsed = Math.round(performance.now() - start)
     requestTime.value = elapsed
     const isHit = result.value !== null && data.now === result.value.cachedAt
     result.value = { cachedAt: data.now, value: data.value }
     history.value.unshift({ time: Date.now(), ms: elapsed, hit: isHit, value: data.value })
     if (history.value.length > 8) history.value.pop()
-  } finally {
-    loading.value = false
+  } catch (err) {
+    fetchError.value = err instanceof Error ? err.message : 'Failed to fetch /api/cached'
   }
 }
 
@@ -89,12 +103,12 @@ const concepts = [
           'border-primary/20 dark:bg-zinc-950 bg-zinc-50': result && hitStatus === 'fetched',
         }"
       >
-        <div v-if="!result && !loading" class="text-center space-y-2">
+        <div v-if="!result && status !== 'pending'" class="text-center space-y-2">
           <UIcon name="i-lucide-zap" class="size-8 text-dimmed mx-auto" />
           <p class="text-sm text-dimmed">Hit the button to make your first request</p>
         </div>
 
-        <div v-else-if="loading" class="flex flex-col items-center gap-3 text-muted text-sm">
+        <div v-else-if="status === 'pending'" class="flex flex-col items-center gap-3 text-muted text-sm">
           <UIcon name="i-lucide-loader" class="size-6 animate-spin text-rose-400" />
           Fetching from edge…
         </div>
@@ -130,10 +144,13 @@ const concepts = [
           label="Fetch /api/cached"
           trailing-icon="i-lucide-arrow-right"
           color="error"
-          :loading="loading"
+          :loading="status === 'pending'"
           size="lg"
           @click="fetchCached"
         />
+        <p v-if="fetchError" class="text-xs text-error font-mono text-center max-w-xs">
+          {{ fetchError }}
+        </p>
         <p class="text-xs text-dimmed font-mono text-center max-w-xs">
           The <code class="text-rose-400">value</code> stays the same within 5s — that's the cache.
           After TTL, a new random value is computed.
