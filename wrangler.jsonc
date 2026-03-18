@@ -32,22 +32,22 @@
 	 */
 	"d1_databases": [
 		{
-			"binding": "MY_DB",
+			"binding": "DB",
 			"migrations_table": "_hub_migrations",
 			"migrations_dir": ".output/server/db/migrations/sqlite/",
 		}
 	],
 	"kv_namespaces": [
 		{
-			"binding": "MY_KV",
+			"binding": "KV",
 		},
 		{
-			"binding": "MY_CACHE",
+			"binding": "CACHE",
 		}
 	],
 	"r2_buckets": [
 		{
-			"binding": "MY_BLOB",
+			"binding": "BLOB",
 		}
 	],
 	/**
@@ -56,7 +56,9 @@
 	 * Note: Use secrets to store sensitive data.
 	 * https://developers.cloudflare.com/workers/configuration/secrets/
 	 */
-	"vars": {  "MY_VARIABLE": "production_value" }
+	"vars": {
+		"MY_VARIABLE": "production_value"
+	}
 	/**
 	 * Service Bindings (communicate between multiple Workers)
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
