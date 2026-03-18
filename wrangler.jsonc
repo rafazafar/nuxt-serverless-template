@@ -41,17 +41,14 @@
 	"kv_namespaces": [
 		{
 			"binding": "KV",
-			"id": "nuxt-edge-template-kv"
 		},
 		{
 			"binding": "CACHE",
-			"id": "nuxt-edge-template-cache"
 		}
 	],
 	"r2_buckets": [
 		{
 			"binding": "BLOB",
-			"bucket_name": "nuxt-edge-template-blob",
 		}
 	],
 	/**
