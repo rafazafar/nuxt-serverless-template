@@ -1,6 +1,5 @@
 {
-  // "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "nuxt-serverless-template",
+  "$schema": "node_modules/wrangler/config-schema.json",
   "main": "./.output/server/index.mjs",
   "compatibility_date": "2026-03-01",
   "assets": {
@@ -10,14 +9,14 @@
   "observability": {
     "enabled": true
   },
-  // "d1_databases": [
-  //   {
-  //     "binding": "DB",
-  //     "database_id": "a30aa564-d388-493b-8994-23f8dfd129f5",
-  //     "migrations_table": "_hub_migrations",
-  //     "migrations_dir": ".output/server/db/migrations/sqlite/",
-  //   }
-  // ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_id": "a30aa564-d388-493b-8994-23f8dfd129f5",
+      "migrations_table": "_hub_migrations",
+      "migrations_dir": ".output/server/db/migrations/sqlite/",
+    }
+  ],
   // "kv_namespaces": [
   //   {
   //     "binding": "KV",
