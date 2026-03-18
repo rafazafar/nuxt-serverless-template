@@ -1,5 +1,6 @@
 {
   // "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nuxt-serverless-template",
   "main": "./.output/server/index.mjs",
   "compatibility_date": "2026-03-01",
   "assets": {
