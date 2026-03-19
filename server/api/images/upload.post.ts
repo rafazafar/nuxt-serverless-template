@@ -4,7 +4,7 @@ export default eventHandler(async (event) => {
   return blob.handleUpload(event, {
     multiple: false,
     ensure: {
-      maxSize: '8MB',
+      maxSize: '1GB',
       types: ['image/png', 'image/jpeg', 'image/webp'],
     },
   })
