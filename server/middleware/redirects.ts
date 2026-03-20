@@ -6,7 +6,7 @@ export default eventHandler(async (event) => {
   if (import.meta.prerender) return
 
   const { pathname } = parseURL(event.path)
-  const redirects = await kv.get<{ [key: string]: string }>('redirects')
+  const redirects = await kv.get<RedirectMap>('redirects')
 
   if (redirects?.[pathname]) {
     return sendRedirect(event, redirects[pathname])

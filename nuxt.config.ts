@@ -4,7 +4,6 @@ export default defineNuxtConfig({
 
   modules: [
     "@nuxt/scripts",
-    "@nuxt/test-utils",
     "@nuxt/ui",
     "@nuxthub/core",
     "@nuxtjs/seo",

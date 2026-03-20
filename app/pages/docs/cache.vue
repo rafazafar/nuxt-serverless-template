@@ -1,5 +1,4 @@
 <script setup lang="ts">
-definePageMeta({ layout: 'default' })
 const { t, tm, rt, locale } = useI18n()
 
 useSeoMeta({

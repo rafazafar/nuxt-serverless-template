@@ -61,19 +61,18 @@
 </template>
 
 <script lang="ts" setup>
-import type { NavigationMenuItem } from "@nuxt/ui";
-import { computed } from "vue";
+import type { NavigationMenuItem } from "@nuxt/ui"
 
 type LocaleOption = {
-  code: LocaleCode;
-  label: string;
-};
+  code: LocaleCode
+  label: string
+}
 
-const { t, locale, locales } = useI18n();
-const localePath = useLocalePath();
-type LocaleCode = typeof locale.value;
+const { t, locale, locales } = useI18n()
+const localePath = useLocalePath()
+type LocaleCode = typeof locale.value
 
-const fallbackLocaleLabel = (code: string) => code.toUpperCase();
+const fallbackLocaleLabel = (code: string) => code.toUpperCase()
 
 const navItems = computed<NavigationMenuItem[]>(() => [
   { label: t("nav.items.agents"), to: localePath("/docs/agents"), icon: "i-lucide-bot" },
@@ -84,18 +83,18 @@ const navItems = computed<NavigationMenuItem[]>(() => [
   { label: t("nav.items.cache"), to: localePath("/docs/cache"), icon: "i-lucide-zap" },
   { label: t("nav.items.email"), to: localePath("/docs/email"), icon: "i-lucide-mail" },
   { label: t("nav.items.i18n"), to: localePath("/docs/i18n"), icon: "i-lucide-languages" },
-]);
+])
 
 const localeOptions = computed<LocaleOption[]>(() =>
   locales.value.map((entry) => {
     if (typeof entry === "string") {
-      return { code: entry as LocaleCode, label: fallbackLocaleLabel(entry) };
+      return { code: entry as LocaleCode, label: fallbackLocaleLabel(entry) }
     }
 
     return {
       code: entry.code as LocaleCode,
       label: entry.name ?? fallbackLocaleLabel(String(entry.code)),
-    };
+    }
   }),
 );
 
