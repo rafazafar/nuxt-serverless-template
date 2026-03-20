@@ -1,0 +1,8 @@
+skills:
+  nuxtjs-seo-skilld:
+    packageName: "@nuxtjs/seo"
+    version: 3.4.0
+    repo: harlan-zw/nuxt-seo
+    source: "https://github.com/harlan-zw/nuxt-seo/tree/v3.4.0/docs"
+    syncedAt: 2026-03-20
+    generator: skilld
