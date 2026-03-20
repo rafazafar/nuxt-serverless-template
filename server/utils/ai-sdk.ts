@@ -47,6 +47,8 @@ export function getWorkersAI(event: H3Event) {
   return createWorkersAI({ binding });
 }
 
+const DEFAULT_AI_MODEL = "@cf/openai/gpt-oss-120b";
+
 export function normalizeAiSdkRequest(input: AiSdkRequest | null | undefined): NormalizedAiSdkRequest {
   const prompt = input?.prompt?.trim();
   const model = input?.model?.trim() || DEFAULT_AI_MODEL;
