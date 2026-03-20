@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { AI_SDK_DOCS_URL, DEFAULT_AI_MODEL, type AiSdkRequest, type AiSdkResponse } from "../../../shared/ai-sdk";
-
 definePageMeta({ layout: "default" });
 
 const { t } = useI18n();

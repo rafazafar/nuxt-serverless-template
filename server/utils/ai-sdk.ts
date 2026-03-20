@@ -2,7 +2,6 @@ import { generateText, streamText } from "ai";
 import type { H3Event } from "h3";
 import { createWorkersAI } from "workers-ai-provider";
 
-import { DEFAULT_AI_MODEL, type AiSdkRequest, type AiSdkResponse } from "../../shared/ai-sdk";
 
 type CloudflareAiEnv = {
   AI?: Ai;

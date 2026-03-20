@@ -7,5 +7,5 @@ export default cachedEventHandler( async () => {
     value: Math.random(),
   }
 }, {
-  maxAge: 5, // 5 seconds
+  maxAge: 5, 
 })
