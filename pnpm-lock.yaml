@@ -49,7 +49,7 @@ importers:
         version: 4.2.2
       workers-ai-provider:
         specifier: ^3.1.4
-        version: 3.1.4(@ai-sdk/provider@3.0.8)(ai@6.0.116(zod@4.3.6))
+        version: 3.1.7(@ai-sdk/provider@3.0.8)(ai@6.0.116(zod@4.3.6))
       zod:
         specifier: ^4.3.6
         version: 4.3.6
@@ -6676,8 +6676,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  workers-ai-provider@3.1.4:
-    resolution: {integrity: sha512-GFKh2e64nYFmzniEzl1QtjAIcn7iDK9qN+NAaGTaw5blGfCa99k2H07O/x+p55Jt/5EKiZZ40lua1Lf0uCHrRw==}
+  workers-ai-provider@3.1.7:
+    resolution: {integrity: sha512-V53k21mUE/rKQn90yHn/89YY01ERPbuthGA8RL86a/TCOgWGuJmx1HrR3bJsaAAD83FJMUiCHj+g7c4Z9jOKtg==}
     peerDependencies:
       '@ai-sdk/provider': ^3.0.0
       ai: ^6.0.0
@@ -13680,7 +13680,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20260317.1
       '@cloudflare/workerd-windows-64': 1.20260317.1
 
-  workers-ai-provider@3.1.4(@ai-sdk/provider@3.0.8)(ai@6.0.116(zod@4.3.6)):
+  workers-ai-provider@3.1.7(@ai-sdk/provider@3.0.8)(ai@6.0.116(zod@4.3.6)):
     dependencies:
       '@ai-sdk/provider': 3.0.8
       ai: 6.0.116(zod@4.3.6)
