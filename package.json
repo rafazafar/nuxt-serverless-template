@@ -17,7 +17,7 @@
   "dependencies": {
     "@libsql/client": "^0.17.2",
     "@nuxt/scripts": "0.13.2",
-    "@nuxt/ui": "4.5.1",
+    "@nuxt/ui": "4.7.1",
     "@nuxthub/core": "^0.10.7",
     "@nuxtjs/i18n": "10.2.3",
     "@nuxtjs/seo": "^5.0.2",
